@@ -3,25 +3,39 @@ package se.jr.todobackend.todo;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.stereotype.Service;
+import se.jr.todobackend.user.UserEntity;
+import se.jr.todobackend.user.UserRepository;
 
+import java.util.Date;
 import java.util.List;
 
 @Service
 public class TodoService {
 
     private final TodoRepository todoRepository;
+    private final UserRepository userRepository;
     private final ObjectMapper mapper;
 
-    public TodoService(TodoRepository todoRepository, ObjectMapper mapper) {
+    public TodoService(TodoRepository todoRepository, UserRepository userRepository, ObjectMapper mapper) {
         this.todoRepository = todoRepository;
+        this.userRepository = userRepository;
         this.mapper = mapper;
     }
 
     // CRUD methods
 
     // Add todo
-    public void createTodo(TodoDto dto) {
-        TodoEntity todo = mapper.convertValue(dto, TodoEntity.class);
+    public void createUserTodo(Integer userId, TodoDto dto) {
+        UserEntity user = userRepository.findById(userId)
+                .orElseThrow(()-> new RuntimeException("No user with id " + userId + " exist."));
+
+        TodoEntity todo = new TodoEntity();
+        todo.setTitle(dto.getTitle());
+        todo.setTodo(dto.getTodo());
+        todo.setCompleted(dto.isCompleted());
+        todo.setCreatedAt(new Date());
+        todo.setUsername(user.getUsername());
+        user.setTodos(List.of(todo));
         todoRepository.save(todo);
     }
 

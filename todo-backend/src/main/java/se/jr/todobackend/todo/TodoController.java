@@ -19,9 +19,9 @@ public class TodoController {
     // HTTP methods
 
     // Add todo
-    @PostMapping("")
-    public ResponseEntity<String> createTodo(@RequestBody TodoDto dto) {
-        todoService.createTodo(dto);
+    @PostMapping("/users/{userId}")
+    public ResponseEntity<String> createUserTodo(@PathVariable Integer userId, @RequestBody TodoDto dto) {
+        todoService.createUserTodo(userId, dto);
         return new ResponseEntity<>("Todo created.", HttpStatus.CREATED);
     }
 

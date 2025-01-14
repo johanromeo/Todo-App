@@ -1,18 +1,15 @@
 package se.jr.todobackend.todo;
 
+import java.util.Date;
+
 public class TodoDto {
 
     private Integer id;
     private String title;
     private String todo;
     private boolean completed;
-
-    public TodoDto(Integer id, String title, String todo, boolean completed) {
-        this.id = id;
-        this.title = title;
-        this.todo = todo;
-        this.completed = completed;
-    }
+    private Date createdAt;
+    private String username;
 
     public TodoDto() {
     }
@@ -47,5 +44,21 @@ public class TodoDto {
 
     public void setCompleted(boolean completed) {
         this.completed = completed;
+    }
+
+    public Date getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(Date createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
     }
 }

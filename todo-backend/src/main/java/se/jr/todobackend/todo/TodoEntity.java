@@ -2,6 +2,8 @@ package se.jr.todobackend.todo;
 
 import jakarta.persistence.*;
 
+import java.util.Date;
+
 @Entity
 @Table(name = "todos")
 public class TodoEntity {
@@ -12,13 +14,8 @@ public class TodoEntity {
     private String title;
     private String todo;
     private boolean completed;
-
-    public TodoEntity(Integer id, String title, String todo, boolean completed) {
-        this.id = id;
-        this.title = title;
-        this.todo = todo;
-        this.completed = completed;
-    }
+    private Date createdAt;
+    private String username;
 
     public TodoEntity() {
     }
@@ -53,5 +50,21 @@ public class TodoEntity {
 
     public void setCompleted(boolean completed) {
         this.completed = completed;
+    }
+
+    public Date getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(Date createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
     }
 }
