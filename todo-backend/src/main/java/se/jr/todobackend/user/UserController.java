@@ -7,6 +7,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/users")
+@CrossOrigin("*")
 public class UserController {
 
     private final UserService userService;
@@ -16,9 +17,8 @@ public class UserController {
     }
 
     @PostMapping("")
-    public ResponseEntity<String> createUser(@RequestBody UserDto dto) {
-        userService.createUser(dto);
-        return ResponseEntity.ok("New user has been created.");
+    public ResponseEntity<UserDto> createUser(@RequestBody UserDto dto) {
+        return ResponseEntity.ok(userService.createUser(dto));
     }
 
     @GetMapping("")

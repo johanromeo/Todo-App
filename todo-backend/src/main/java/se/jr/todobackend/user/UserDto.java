@@ -11,6 +11,7 @@ public class UserDto {
     private List<TodoDto> todos;
 
     public UserDto() {
+
     }
 
     public Integer getId() {

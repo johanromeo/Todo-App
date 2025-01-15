@@ -18,10 +18,12 @@ public class UserService {
         this.mapper = mapper;
     }
 
-    public void createUser(UserDto dto) {
+    public UserDto createUser(UserDto dto) {
         UserEntity user = new UserEntity();
         user.setUsername(dto.getUsername());
         userRepository.save(user);
+
+        return mapper.convertValue(user, UserDto.class);
     }
 
     public List<UserDto> getAllUsers() {
