@@ -17,9 +17,8 @@ public class TodoController {
     }
 
     @PostMapping("/users/{userId}")
-    public ResponseEntity<String> createUserTodo(@PathVariable Integer userId, @RequestBody TodoDto dto) {
-        todoService.createUserTodo(userId, dto);
-        return new ResponseEntity<>("Todo created.", HttpStatus.CREATED);
+    public ResponseEntity<TodoDto> createUserTodo(@PathVariable Integer userId, @RequestBody TodoDto dto) {
+        return ResponseEntity.ok(todoService.createUserTodo(userId, dto));
     }
 
     @GetMapping("/{id}")
@@ -29,14 +28,12 @@ public class TodoController {
 
     @GetMapping("")
     public ResponseEntity<List<TodoDto>> getAllTodos() {
-        return new ResponseEntity<>(todoService.getAllTodos(), HttpStatus.OK);
+        return ResponseEntity.ok(todoService.getAllTodos());
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<String> updateTodo(@PathVariable Integer id, @RequestBody TodoDto dto) {
-        todoService.updateTodo(id, dto);
-
-        return new ResponseEntity<>("Todo has been updated.", HttpStatus.OK);
+    public ResponseEntity<TodoDto> updateTodo(@PathVariable Integer id, @RequestBody TodoDto dto) {
+        return ResponseEntity.ok(todoService.updateTodo(id, dto));
     }
 
     @DeleteMapping("/{id}")

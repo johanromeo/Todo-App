@@ -1,6 +1,7 @@
 package se.jr.todobackend.todo;
 
 import jakarta.persistence.*;
+import se.jr.todobackend.user.UserEntity;
 
 import java.util.Date;
 
@@ -15,7 +16,10 @@ public class TodoEntity {
     private String todo;
     private boolean completed;
     private Date createdAt;
-    private String username;
+
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private UserEntity userEntity;
 
     public TodoEntity() {
     }
@@ -60,11 +64,11 @@ public class TodoEntity {
         this.createdAt = createdAt;
     }
 
-    public String getUsername() {
-        return username;
+    public UserEntity getUserEntity() {
+        return userEntity;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setUserEntity(UserEntity userEntity) {
+        this.userEntity = userEntity;
     }
 }

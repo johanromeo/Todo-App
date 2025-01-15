@@ -9,7 +9,7 @@ public class TodoDto {
     private String todo;
     private boolean completed;
     private Date createdAt;
-    private String username;
+    private Integer userId;
 
     public TodoDto() {
     }
@@ -54,11 +54,11 @@ public class TodoDto {
         this.createdAt = createdAt;
     }
 
-    public String getUsername() {
-        return username;
+    public Integer getUserId() {
+        return userId;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setUserId(Integer userId) {
+        this.userId = userId;
     }
 }

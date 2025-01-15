@@ -1,8 +1,7 @@
 package se.jr.todobackend.todo;
 
-import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.stereotype.Service;
+import se.jr.todobackend.mapper.TodoMapper;
 import se.jr.todobackend.user.UserEntity;
 import se.jr.todobackend.user.UserRepository;
 
@@ -14,61 +13,65 @@ public class TodoService {
 
     private final TodoRepository todoRepository;
     private final UserRepository userRepository;
-    private final ObjectMapper mapper;
+    private final TodoMapper todoMapper;
 
-    public TodoService(TodoRepository todoRepository, UserRepository userRepository, ObjectMapper mapper) {
+    public TodoService(TodoRepository todoRepository, UserRepository userRepository, TodoMapper todoMapper) {
         this.todoRepository = todoRepository;
         this.userRepository = userRepository;
-        this.mapper = mapper;
+        this.todoMapper = todoMapper;
     }
 
-    // CRUD methods
 
-    // Add todo
-    public void createUserTodo(Integer userId, TodoDto dto) {
+    public TodoDto createUserTodo(Integer userId, TodoDto dto) {
         UserEntity user = userRepository.findById(userId)
-                .orElseThrow(()-> new RuntimeException("No user with id " + userId + " exist."));
+                .orElseThrow(() -> new RuntimeException("No user with id " + userId + " exists."));
 
-        TodoEntity todo = new TodoEntity();
-        todo.setTitle(dto.getTitle());
-        todo.setTodo(dto.getTodo());
-        todo.setCompleted(dto.isCompleted());
+        TodoEntity todo = todoMapper.mapToEntity(dto);
         todo.setCreatedAt(new Date());
-        todo.setUsername(user.getUsername());
-        user.setTodos(List.of(todo));
+        todo.setUserEntity(user);
+        user.getTodos().add(todo);
         todoRepository.save(todo);
+
+        userRepository.save(user);
+
+        return todoMapper.mapToDto(todo);
     }
 
-    // Get one todo by id
     public TodoDto getTodoById(Integer id) {
         TodoEntity todo = todoRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Todo with id " + id + " does not exist."));
 
-        return mapper.convertValue(todo, TodoDto.class);
+        return todoMapper.mapToDto(todo);
     }
 
-    // Get all todos
     public List<TodoDto> getAllTodos() {
         List<TodoEntity> todos = todoRepository.findAll();
 
-        return mapper.convertValue(todos, new TypeReference<>() {
-        });
+        return todoMapper.mapToDtos(todos);
     }
 
-    // Update todo by id
-    public void updateTodo(Integer id, TodoDto dto) {
+    public TodoDto updateTodo(Integer id, TodoDto dto) {
         TodoEntity todo = todoRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Todo with id " + id + " does not exist."));
+
+        UserEntity user = userRepository.findById(dto.getUserId())
+                        .orElseThrow(() -> new RuntimeException("User with id " + id + " does not exist."));
+
         todo.setTitle(dto.getTitle());
         todo.setTodo(dto.getTodo());
         todo.setCompleted(dto.isCompleted());
+        todo.setUserEntity(user);
         todoRepository.save(todo);
+
+        userRepository.save(user);
+
+        return todoMapper.mapToDto(todo);
     }
 
-    // Delete todo by id
     public void deleteTodo(Integer id) {
         TodoEntity todo = todoRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Todo with id " + id + " does not exist."));
+
         todoRepository.delete(todo);
     }
 }

@@ -15,7 +15,7 @@ public class UserEntity {
     private Integer id;
     private String username;
 
-    @OneToMany(cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "userEntity", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<TodoEntity> todos;
 
     public UserEntity() {
