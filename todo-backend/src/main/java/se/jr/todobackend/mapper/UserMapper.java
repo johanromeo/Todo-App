@@ -29,12 +29,12 @@ public class UserMapper {
         for (TodoEntity todoEntity : todoEntities) {
             todoEntity.setUserEntity(userEntity);
         }
+
         if (todoEntities != null) {
             userEntity.setTodos(todoEntities);
         }
 
         return userEntity;
-
     }
 
     public UserDto mapToDto(UserEntity userEntity) {
@@ -44,6 +44,7 @@ public class UserMapper {
         userDto.setUsername(userEntity.getUsername());
 
         List<TodoDto> todoDtos = todoMapper.mapToDtos(userEntity.getTodos());
+
         if (todoDtos != null) {
             userDto.setTodos(todoDtos);
         }
