@@ -16,12 +16,6 @@ public class TodoController {
         this.todoService = todoService;
     }
 
-    //TODO: Move to a separate Controller class with a better endpoint
-    @PostMapping("/users/{userId}")
-    public ResponseEntity<TodoDto> createUserTodo(@PathVariable Integer userId, @RequestBody TodoDto dto) {
-        return ResponseEntity.ok(todoService.createUserTodo(userId, dto));
-    }
-
     @GetMapping("/{id}")
     public ResponseEntity<TodoDto> getTodoById(@PathVariable Integer id) {
         return ResponseEntity.ok(todoService.getTodoById(id));
