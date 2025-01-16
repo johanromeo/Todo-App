@@ -13,4 +13,5 @@ spring:
       ddl-auto: update
 
   jackson:
-    date-format: java.text.SimpleDateFormat
+    date-format: yyy-MM-dd HH:mm
+    time-zone: Europe/Stockholm
