@@ -33,6 +33,7 @@ function RemoveUser(props) {
           type="text"
           placeholder="Enter ID"
           value={userId}
+          // Capture the keyboard event and cast it to an Integer
           onChange={(event) => setUserId(Number(event.target.value))}
         />
         <button type="submit">Delete user by ID</button>
