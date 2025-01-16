@@ -50,6 +50,12 @@ public class TodoService {
         return todoMapper.mapToDtos(todos);
     }
 
+    public List<TodoDto> getAllUserTodos(Integer userId) {
+        List<TodoEntity> userTodos = todoRepository.findTodoEntitiesByUserEntity_Id(userId);
+
+        return todoMapper.mapToDtos(userTodos);
+    }
+
     public TodoDto updateTodo(Integer id, TodoDto dto) {
         TodoEntity todo = todoRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Todo with id " + id + " does not exist."));
