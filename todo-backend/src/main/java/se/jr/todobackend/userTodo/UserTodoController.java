@@ -8,6 +8,7 @@ import se.jr.todobackend.todo.TodoService;
 
 @RestController
 @RequestMapping("api/users/{userId}/todos")
+@CrossOrigin("*")
 public class UserTodoController {
 
     private final TodoService todoService;
