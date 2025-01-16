@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-
+import DisplayTodo from "./DisplayTodo/DisplayTodo";
 function Todo() {
   const [userTodos, setUserTodos] = useState([]);
   const { userId } = useParams();
@@ -13,14 +13,14 @@ function Todo() {
       const data = await response.json();
 
       setUserTodos(data);
-      console.log(data);
     }
     getUserTodos();
   }, [userId]);
 
   return (
     <main>
-      <h1>User Todos</h1>
+      <h2>User Todos</h2>
+      <DisplayTodo userTodos={userTodos} />
     </main>
   );
 }
