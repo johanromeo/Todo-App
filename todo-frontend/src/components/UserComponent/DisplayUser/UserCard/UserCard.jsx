@@ -3,9 +3,10 @@ function UserCard(props) {
 
   return (
     <div>
-      <p>
-        ID: {user.id} User: {user.username}
-      </p>
+      <li>
+        <h3>ID: {user.id}</h3>
+        <h3>Username: {user.username}</h3>
+      </li>
     </div>
   );
 }

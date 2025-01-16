@@ -7,6 +7,11 @@ function AddUser(props) {
   async function createUser(e) {
     e.preventDefault();
 
+    // Preventing no-named users to be created. Need to fix this in backend instead of here!
+    if (username === "") {
+      return;
+    }
+
     const newUser = {
       username: username,
     };
@@ -22,6 +27,7 @@ function AddUser(props) {
     if (response.ok) {
       const savedUser = await response.json();
       setUsers((prevUsers) => [...prevUsers, savedUser]);
+      setUsername("");
     }
   }
 
@@ -31,6 +37,7 @@ function AddUser(props) {
         <input
           type="text"
           placeholder="Enter username"
+          value={username}
           onChange={(event) => setUsername(event.target.value)}
         />
         <button type="submit">Add user</button>

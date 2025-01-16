@@ -7,7 +7,11 @@ function DisplayUser(props) {
     return <UserCard username={user.username} key={user.id} user={user} />;
   });
 
-  return <div> {userCardComponents}</div>;
+  return (
+    <div>
+      <ul>{userCardComponents}</ul>
+    </div>
+  );
 }
 
 export default DisplayUser;
