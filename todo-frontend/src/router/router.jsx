@@ -14,7 +14,7 @@ const router = createBrowserRouter([
     element: <UserPage />,
   },
   {
-    path: "/users/:userId/todos",
+    path: "/user/:userId/todos",
     element: <TodoPage />,
   },
 ]);

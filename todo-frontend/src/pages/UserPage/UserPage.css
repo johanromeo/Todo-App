@@ -1,0 +1,10 @@
+.users {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.users-display {
+  align-self: flex-start;
+}

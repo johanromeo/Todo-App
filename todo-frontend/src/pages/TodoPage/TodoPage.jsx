@@ -23,7 +23,7 @@ function TodoPage() {
 
   return (
     <main>
-      {/* Nice to have username as h2 instead */}
+      {/* Would be nice to have username as h2 instead */}
       <h2>User's todos</h2>
       <DisplayTodo userTodos={userTodos} />
       <AddTodo setUserTodos={setUserTodos} userId={userId} />

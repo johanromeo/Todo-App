@@ -2,6 +2,8 @@ import DisplayUser from "../../components/UserComponent/DisplayUser/DisplayUser"
 import AddUser from "../../components/UserComponent/AddUser/AddUser";
 import RemoveUser from "../../components/UserComponent/RemoveUser/RemoveUser";
 
+import "./UserPage.css";
+
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -10,7 +12,7 @@ function UserPage() {
   const navigate = useNavigate();
 
   const navigateToUserTodoPage = (userId) => {
-    navigate(`/users/${userId}/todos`);
+    navigate(`/user/${userId}/todos`);
   };
 
   useEffect(() => {
@@ -24,14 +26,18 @@ function UserPage() {
   }, [setUsers]);
 
   return (
-    <div>
+    <div className="users">
       <h3>Users</h3>
-      <DisplayUser
-        users={users}
-        navigateToUserTodoPage={navigateToUserTodoPage}
-      />
-      <AddUser setUsers={setUsers} />
-      <RemoveUser users={users} setUsers={setUsers} />
+      <div className="users-display">
+        <DisplayUser
+          users={users}
+          navigateToUserTodoPage={navigateToUserTodoPage}
+        />
+      </div>
+      <div>
+        <AddUser setUsers={setUsers} />
+        <RemoveUser users={users} setUsers={setUsers} />
+      </div>
     </div>
   );
 }

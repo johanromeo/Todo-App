@@ -1,12 +1,18 @@
+import "./UserCard.css";
+
 function UserCard(props) {
   const { user, navigateToUserTodoPage } = props;
 
   return (
-    <div>
-      <li>ID: {user.id}</li>
-      <li>Username: {user.username}</li>
-      <button onClick={() => navigateToUserTodoPage(user.id)}>
-        See {user.username}'s todos
+    <div className="user-card">
+      <li>
+        <strong>Username:</strong> {user.username}
+      </li>
+      <button
+        className="user-card-button"
+        onClick={() => navigateToUserTodoPage(user.id)}
+      >
+        See Todos
       </button>
     </div>
   );

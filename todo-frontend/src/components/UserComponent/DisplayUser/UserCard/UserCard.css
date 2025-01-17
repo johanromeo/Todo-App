@@ -1,0 +1,12 @@
+.user-card {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+  margin-bottom: 1rem;
+}
+
+.user-card-button {
+  background-color: rgb(5, 114, 240);
+  color: aliceblue;
+}

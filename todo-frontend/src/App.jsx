@@ -6,7 +6,7 @@ import router from "./router/router";
 function App() {
   return (
     <main>
-      <h1>Johan's Todo Application</h1>
+      <h1>Todo Buddy</h1>
       <RouterProvider router={router} />
     </main>
   );
