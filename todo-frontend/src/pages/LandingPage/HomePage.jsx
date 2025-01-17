@@ -4,11 +4,9 @@ import UserPage from "../UserPage/UserPage";
 function HomePage() {
   return (
     <div>
-      <nav>
-        <Link to="/users" element={UserPage}>
-          Users
-        </Link>
-      </nav>
+      <Link to="/users" element={UserPage}>
+        Users
+      </Link>
     </div>
   );
 }
