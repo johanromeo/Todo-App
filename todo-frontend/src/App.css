@@ -2,11 +2,11 @@ html,
 body,
 #root {
   font-family: Arial, sans-serif;
-  height: 100vh;
+  height: 80vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #045792;
+  background-color: #032944;
 }
 
 h1,
@@ -41,7 +41,9 @@ button {
   border: none;
   border-radius: 5px;
   font-size: 1rem;
-  margin: 3px;
+  margin: 1px;
+  padding: 5px 5px;
+  font-weight: bold;
 }
 
 button:hover {
