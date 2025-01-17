@@ -1,16 +1,16 @@
 import { createBrowserRouter } from "react-router-dom";
 
-import User from "../components/UserComponent/User.jsx";
-import Todo from "../components/TodoComponent/Todo.jsx";
+import UserPage from "../pages/UserPage/UserPage.jsx";
+import TodoPage from "../pages/TodoPage/TodoPage.jsx";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <User />,
+    element: <UserPage />,
   },
   {
     path: "/users/:userId/todos",
-    element: <Todo />,
+    element: <TodoPage />,
   },
 ]);
 

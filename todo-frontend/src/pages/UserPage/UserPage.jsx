@@ -1,6 +1,6 @@
-import DisplayUser from "./DisplayUser/DisplayUser";
-import AddUser from "./AddUser/AddUser";
-import RemoveUser from "./RemoveUser/RemoveUser";
+import DisplayUser from "../../components/UserComponent/DisplayUser/DisplayUser";
+import AddUser from "../../components/UserComponent/AddUser/AddUser";
+import RemoveUser from "../../components/UserComponent/RemoveUser/RemoveUser";
 
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";

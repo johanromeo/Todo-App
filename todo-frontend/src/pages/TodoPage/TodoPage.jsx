@@ -1,6 +1,8 @@
+import DisplayTodo from "../../components/TodoComponent/DisplayTodo/DisplayTodo";
+
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import DisplayTodo from "./DisplayTodo/DisplayTodo";
+
 function Todo() {
   const [userTodos, setUserTodos] = useState([]);
   const { userId } = useParams();
