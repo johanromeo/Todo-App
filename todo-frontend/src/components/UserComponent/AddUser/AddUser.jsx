@@ -4,8 +4,8 @@ function AddUser(props) {
   const [username, setUsername] = useState("");
   const { setUsers } = props;
 
-  async function createUser(e) {
-    e.preventDefault();
+  async function createUser(event) {
+    event.preventDefault();
 
     // Preventing no-named users to be created. Need to fix this in backend instead of here!
     if (username === "") {
@@ -33,15 +33,17 @@ function AddUser(props) {
 
   return (
     <div>
-      <form onSubmit={createUser}>
-        <input
-          type="text"
-          placeholder="Enter username"
-          value={username}
-          onChange={(event) => setUsername(event.target.value)}
-        />
-        <button type="submit">Add user</button>
-      </form>
+      {/* <form onSubmit={createUser}> */}
+      <input
+        type="text"
+        placeholder="Enter username"
+        value={username}
+        onChange={(event) => setUsername(event.target.value)}
+      />
+      <button type="button" onClick={createUser}>
+        Add user
+      </button>
+      {/* </form> */}
     </div>
   );
 }
