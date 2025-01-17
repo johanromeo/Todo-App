@@ -5,7 +5,7 @@ import RemoveUser from "../../components/UserComponent/RemoveUser/RemoveUser";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
-function User() {
+function UserPage() {
   const [users, setUsers] = useState([]);
   const navigate = useNavigate();
 
@@ -36,4 +36,4 @@ function User() {
   );
 }
 
-export default User;
+export default UserPage;

@@ -2,8 +2,9 @@ import DisplayTodo from "../../components/TodoComponent/DisplayTodo/DisplayTodo"
 
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import AddTodo from "../../components/TodoComponent/AddTodo/AddTodo";
 
-function Todo() {
+function TodoPage() {
   const [userTodos, setUserTodos] = useState([]);
   const { userId } = useParams();
 
@@ -23,8 +24,9 @@ function Todo() {
     <main>
       <h2>User Todos</h2>
       <DisplayTodo userTodos={userTodos} />
+      <AddTodo setUserTodos={setUserTodos} userId={userId} />
     </main>
   );
 }
 
-export default Todo;
+export default TodoPage;
