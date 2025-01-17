@@ -7,6 +7,8 @@ function DisplayTodo(props) {
     return <TodoCard key={todo.id} todo={todo} />;
   });
   return (
+    // Ta bort div, ul -> li
+
     <div>
       <ul>{userTodoComponents}</ul>
     </div>

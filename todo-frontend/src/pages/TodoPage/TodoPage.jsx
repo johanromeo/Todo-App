@@ -23,11 +23,11 @@ function TodoPage() {
 
   return (
     <main>
-      <h2>User Todos</h2>
+      {/* Nice to have username as h2 instead */}
+      <h2>User's todos</h2>
       <DisplayTodo userTodos={userTodos} />
       <AddTodo setUserTodos={setUserTodos} userId={userId} />
       <RemoveTodo
-        // Brain lag, do i even need all of these?
         userTodos={userTodos}
         setUserTodos={setUserTodos}
         userId={userId}
