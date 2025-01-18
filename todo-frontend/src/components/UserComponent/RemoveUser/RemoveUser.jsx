@@ -1,10 +1,10 @@
-import { useState } from "react";
+//import { useState } from "react";
 
 function RemoveUser(props) {
   // For user state manipulation
-  const { users, setUsers } = props;
+  const { users, setUsers, userId } = props;
   // Saving the input userId in a state
-  const [userId, setUserId] = useState("");
+  // const [userId, setUserId] = useState("");
 
   // Delete request preventing automatically new loading
   async function deleteUser(e) {
@@ -21,23 +21,13 @@ function RemoveUser(props) {
       // If the userId input matches the actual user id, remove it.
       setUsers(users.filter((user) => user.id != userId));
       // Sets the state to 0
-      setUserId("");
+      //setUserId("");
     }
   }
 
   return (
     <div>
-      <form onSubmit={deleteUser}>
-        <input
-          // "text" to remove the ugly up/down arrows
-          type="text"
-          placeholder="Enter ID"
-          value={userId}
-          // Capture the keyboard event and cast it to an Integer
-          onChange={(event) => setUserId(event.target.value)}
-        />
-        <button type="submit">Delete user by ID</button>
-      </form>
+      <button onClick={deleteUser}>Delete user</button>
     </div>
   );
 }

@@ -31,6 +31,7 @@ function UserPage() {
       <div className="users-display">
         <DisplayUser
           users={users}
+          setUsers={setUsers}
           navigateToUserTodoPage={navigateToUserTodoPage}
         />
       </div>
