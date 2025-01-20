@@ -5,10 +5,11 @@ import "./HomePage.css";
 function HomePage() {
   return (
     <div className="homepage-users">
-      <h2>Users</h2>
+      <h3>Add Your User</h3>
       <Link to="/users">
-        <img src="../../../public/users.png" alt="A group of users" />
+        <img src="/users.png" alt="A group of users" />
       </Link>
+      <h4>Click me!</h4>
     </div>
   );
 }

@@ -5,6 +5,7 @@ body,
   padding: 0;
   font-family: Arial, sans-serif;
   height: 100vh;
+  /* max-width: 1200px; */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -14,9 +15,11 @@ body,
 h1,
 h2,
 h3,
+h4,
 p,
+footer,
 li {
-  color: rgb(7, 42, 71);
+  color: rgb(8, 50, 83);
 }
 
 h1,
@@ -55,4 +58,8 @@ button {
 button:hover {
   box-shadow: 0 12px 16px 0 rgba(5, 217, 224, 0.24),
     0 17px 50px 0 rgba(0, 0, 0, 0.19);
+}
+
+.footer {
+  margin-top: 10rem;
 }

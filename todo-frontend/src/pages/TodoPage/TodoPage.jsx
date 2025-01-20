@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import AddTodo from "../../components/TodoComponent/AddTodo/AddTodo";
 import RemoveTodo from "../../components/TodoComponent/RemoveTodo/RemoveTodo";
+import Navigation from "../../components/Navigation/Navigation";
 
 function TodoPage() {
   const [userTodos, setUserTodos] = useState([]);
@@ -23,8 +24,7 @@ function TodoPage() {
 
   return (
     <main>
-      {/* Would be nice to have username as h2 instead */}
-      <h2>User's todos</h2>
+      <Navigation />
       <DisplayTodo userTodos={userTodos} />
       <AddTodo setUserTodos={setUserTodos} userId={userId} />
       <RemoveTodo

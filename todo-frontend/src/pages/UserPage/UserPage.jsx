@@ -5,6 +5,7 @@ import "./UserPage.css";
 
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import Navigation from "../../components/Navigation/Navigation";
 
 function UserPage() {
   const [users, setUsers] = useState([]);
@@ -26,7 +27,14 @@ function UserPage() {
 
   return (
     <div className="users">
-      <h3>Users</h3>
+      <Navigation />
+      {users.length === 0 ? (
+        <p>
+          <i>Looks empty in here... Start by adding a user!</i>
+        </p>
+      ) : (
+        <h3>All Users</h3>
+      )}
       <div className="users-display">
         <DisplayUser
           users={users}
