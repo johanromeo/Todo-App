@@ -1,6 +1,5 @@
 import DisplayUser from "../../components/UserComponent/DisplayUser/DisplayUser";
 import AddUser from "../../components/UserComponent/AddUser/AddUser";
-import RemoveUser from "../../components/UserComponent/RemoveUser/RemoveUser";
 
 import "./UserPage.css";
 
@@ -37,7 +36,6 @@ function UserPage() {
       </div>
       <div>
         <AddUser setUsers={setUsers} />
-        <RemoveUser users={users} setUsers={setUsers} />
       </div>
     </div>
   );

@@ -6,5 +6,7 @@
 }
 
 .users-display {
-  align-self: flex-start;
+  /* display: flex; */
+  /* align-self: flex-start; */
+  flex-direction: row;
 }

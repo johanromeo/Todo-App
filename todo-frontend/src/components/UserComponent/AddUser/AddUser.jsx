@@ -1,5 +1,7 @@
 import { useState } from "react";
 
+import "./AddUser.css";
+
 function AddUser(props) {
   const [username, setUsername] = useState("");
   const { setUsers } = props;
@@ -7,7 +9,6 @@ function AddUser(props) {
   async function createUser(event) {
     event.preventDefault();
 
-    // Preventing no-named users to be created. Need to fix this in backend instead of here!
     if (username === "") {
       return;
     }
@@ -32,18 +33,19 @@ function AddUser(props) {
   }
 
   return (
-    <div>
-      {/* <form onSubmit={createUser}> */}
-      <input
-        type="text"
-        placeholder="Enter username"
-        value={username}
-        onChange={(event) => setUsername(event.target.value)}
-      />
-      <button type="button" onClick={createUser}>
-        Add user
-      </button>
-      {/* </form> */}
+    <div className="add-user">
+      <form onSubmit={createUser}>
+        <input
+          className="add-user-input"
+          type="text"
+          placeholder="Enter username"
+          value={username}
+          onChange={(event) => setUsername(event.target.value)}
+        />
+        <button className="add-user-button" type="button" onClick={createUser}>
+          Add user
+        </button>
+      </form>
     </div>
   );
 }

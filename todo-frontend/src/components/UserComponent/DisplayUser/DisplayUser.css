@@ -1,0 +1,12 @@
+.user-card-container {
+  display: flex;
+  flex-direction: row;
+  align-items: end;
+  border: 1px solid rgb(10, 184, 228);
+  border-radius: 10px;
+  margin-bottom: 1rem;
+  /* padding: 0.5rem 0.5rem; */
+}
+
+.remove-user {
+}

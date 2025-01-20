@@ -1,12 +1,37 @@
+.user-card-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid rgb(10, 184, 228);
+  border-radius: 10px;
+  margin-bottom: 1rem;
+  padding: 0.5rem;
+}
+
 .user-card {
   display: flex;
-  justify-content: center;
-  align-items: flex-start;
   flex-direction: column;
-  margin-bottom: 1rem;
+}
+
+.remove-user {
+  display: flex;
+  align-items: center; /* Center the trash can vertically */
+  justify-content: center;
+  margin-left: auto; /* Push it to the far right */
+}
+
+.delete-user-button {
+  background-color: rgb(170, 16, 42);
+  border: none;
+  color: white;
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 50%; /* Make it circular */
 }
 
 .user-card-button {
   background-color: rgb(5, 114, 240);
   color: aliceblue;
+  max-width: 90px;
 }

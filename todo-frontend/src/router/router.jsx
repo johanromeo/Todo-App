@@ -2,7 +2,7 @@ import { createBrowserRouter } from "react-router-dom";
 
 import UserPage from "../pages/UserPage/UserPage.jsx";
 import TodoPage from "../pages/TodoPage/TodoPage.jsx";
-import HomePage from "../pages/LandingPage/HomePage.jsx";
+import HomePage from "../pages/HomePage/HomePage.jsx";
 
 const router = createBrowserRouter([
   {
